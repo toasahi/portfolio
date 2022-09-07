@@ -39,7 +39,7 @@ export const About = () => {
         </div>
       </section>
       <section>
-        <div className='bg-white ml-10 w-72 h-96 rounded relative mb-32'>
+        <div className='bg-white ml-10 w-80 h-96 relative mb-32'>
           <Image
             src='/museum.jpg'
             layout='fill'
