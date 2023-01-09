@@ -2,7 +2,7 @@ import Image from 'next/image';
 
 export const Portfolio = () => {
   return (
-    <div className='snap-start h-screen lg:px-12 xl:px-32'>
+    <div className='h-screen lg:px-12 xl:px-32'>
       <div className='flex lg:justify-between h-full tracking-[0.7rem] items-center font-title text-[#333333]'>
         <div className='flex items-center mx-auto lg:mx-0'>
           <div className='font-light text-2xl sm:font-bold xl:text-4xl'>
