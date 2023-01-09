@@ -1,4 +1,3 @@
-import Link from 'next/link';
 import { ReactNode } from 'react';
 
 type Props = {
@@ -7,16 +6,12 @@ type Props = {
 
 export const Layout = ({ children }: Props) => {
   return (
-    <div>
-      <nav className='flex flex-rows p-2 bg-red-500 text-white font-bold'>
-        <Link href='/src/pages'>
-          <a>Home</a>
-        </Link>
-        <Link href='/'>
-          <a>About </a>
-        </Link>
-      </nav>
-      {children}
-    </div>
+      <main className='h-scrren'>{children}
+      <footer>
+        <div className=' text-main-0'>
+          <small>&copy; 2023 ASAHI TODA</small>
+        </div>
+      </footer>
+      </main>
   );
 };
