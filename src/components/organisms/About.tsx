@@ -1,7 +1,7 @@
 export const About = () => {
   return (
-    <>
-      <section className='text-white font-text mt-20'>
+    <section className='bg-[url("/about.png")] bg-no-repeat bg-cover bg-center w-full  h-[750px] px-16 py-32'>
+      <div className='text-white font-text'>
         <div className='flex text-6xl justify-between w-72 font-light'>
           <h2>戸田</h2>
           <h2>麻陽</h2>
@@ -10,8 +10,8 @@ export const About = () => {
           <p>Toda</p>
           <p>Asahi</p>
         </div>
-        <div className='font-light tracking-[0.2rem] lg:leading-[2rem] mt-6 '>
-          <p className='text-[16px]'>
+        <div className='font-light tracking-[0.2rem] lg:leading-[2rem] mt-5 '>
+          <p>
             2000年生まれ Webエンジニア 小学生から高校まで野球をしていた。
             <br />
             2019年にプログラミングに出会い、プログラミングの世界へ
@@ -20,7 +20,7 @@ export const About = () => {
             <br />
             将来はIT × 農業を実現したいと考えています。
           </p>
-          <p className='text-[12px] mt-2'>
+          <p className='mt-5'>
             Born in 2000 Web Engineer I played baseball from elementary to high school.
             <br />
             Discovered programming in 2019 and entered the world of programming.
@@ -31,7 +31,10 @@ export const About = () => {
             In the future, hopes to realize IT × Agriculture.
           </p>
         </div>
-      </section>
-    </>
+        <button className='w-48 h-16 mt-8 rounded-xl border-white text-xl border-2 font-extralight font-buttonText tracking-widest bg-transparent'>
+          View About
+        </button>
+      </div>
+    </section>
   );
 };

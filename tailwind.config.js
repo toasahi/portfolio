@@ -6,22 +6,16 @@ module.exports = {
       fontFamily: {
         title: ['Acuta'],
         text: ['Noto Serif JP'],
+        buttonText: ['Acuta'],
       },
-      keyframes: {
-        flowingText: {
-          '0%': {
-            width: '0%',
-          },
-          '100%': {
-            width: '100%',
-          },
-        },
+      colors: {
+        main: ['#333333'],
       },
-      animation: {
-        flowingText: 'flowingText 5s',
+      backgroundColor: {
+        portfolioLine: ['#333333'],
       },
-      backgroundImage: {
-        boader: "url('../public/boader.svg')",
+      borderColor: {
+        line: ['#333333'],
       },
     },
   },
