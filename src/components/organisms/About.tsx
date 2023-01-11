@@ -1,4 +1,11 @@
+import { useRouter } from 'next/router';
+
 export const About = () => {
+  const router = useRouter();
+  const linkToAbout = () => {
+    router.push('/about');
+  };
+
   return (
     <section className='bg-[url("/about.png")] bg-no-repeat bg-cover bg-center w-full  h-[750px] px-16 py-32'>
       <div className='text-white font-text'>
@@ -31,7 +38,10 @@ export const About = () => {
             In the future, hopes to realize IT × Agriculture.
           </p>
         </div>
-        <button className='w-48 h-16 mt-8 rounded-xl border-white text-xl border-2 font-extralight font-buttonText tracking-widest bg-transparent'>
+        <button
+          onClick={linkToAbout}
+          className='w-48 h-16 mt-8 rounded-xl border-white text-xl border-2 font-extralight font-buttonText tracking-widest bg-transparent'
+        >
           View About
         </button>
       </div>
