@@ -4,13 +4,13 @@ export const Portfolio = () => {
   return (
     <div className='h-screen lg:px-12 xl:px-32'>
       <div className='flex lg:justify-between h-full tracking-[0.7rem] items-center font-title text-main-0'>
-        <div className='flex items-center mx-auto lg:mx-0'>
-          <div className='font-light text-2xl sm:font-bold xl:text-4xl'>
+        <div className='flex items-center mx-auto animate-floatText lg:mx-0'>
+          <div className='font-light text-2xl tb:font-bold xl:text-4xl'>
             <p>TODA</p>
             <p>ASAHI</p>
           </div>
           <div className='hidden lg:block lg:w-0.5 lg:h-96 lg:mx-12 bg-portfolioLine-0'></div>
-          <div className='font-bold hidden sm:block lg:text-8xl lg:leading-[7.5rem]'>
+          <div className='font-bold hidden tb:block lg:text-8xl lg:leading-[7.5rem]'>
             <p>PORT</p>
             <p>FO-</p>
             <p>LIO</p>
