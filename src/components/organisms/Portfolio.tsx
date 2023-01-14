@@ -16,7 +16,7 @@ export const Portfolio = () => {
             <p>LIO</p>
           </div>
         </div>
-        <div className='hidden lg:block h-screen lg:w-[21rem] lg:mr-12 relative'>
+        <div className='hidden lg:block h-full lg:w-[21rem] lg:mr-12 relative'>
           <Image src='/people.jpg' layout='fill' objectFit='cover' alt='people'></Image>
           <div className='absolute lg:w-96 lg:h-80 border-solid border-2 border-line-0 opacity-60 lg:-left-6 lg:top-64'></div>
         </div>
