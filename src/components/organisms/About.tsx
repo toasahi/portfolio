@@ -7,13 +7,13 @@ export const About = () => {
   };
 
   return (
-    <section className='bg-[url("/about.png")] bg-no-repeat bg-cover bg-center w-full tb:h-[750px] px-2 py-8 tb:px-16 tb:py-32'>
+    <section className='bg-transparent tb:bg-[url("/808.png")] bg-no-repeat bg-cover bg-center w-full tb:h-[750px] px-2 py-8 tb:px-16 tb:py-32'>
       <div className='text-white font-text h-full'>
-        <div className='flex text-5xl justify-between  font-light w-2/3 tb:w-72 tb:text-6xl'>
+        <div className='  text-5xl  font-light w-2/3 flex justify-between tb:w-72 tb:text-6xl'>
           <h2>戸田</h2>
           <h2>麻陽</h2>
         </div>
-        <div className='flex text-2xl justify-between w-2/3 font-light mt-3 tb:w-60 tb:text-3xl'>
+        <div className=' text-2xl w-2/3 font-light mt-3 flex justify-between tb:w-60 tb:text-3xl'>
           <p>Toda</p>
           <p>Asahi</p>
         </div>

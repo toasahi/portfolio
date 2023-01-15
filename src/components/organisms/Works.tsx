@@ -1,6 +1,6 @@
 export const Works = () => {
   return (
-    <section className='h-full'>
+    <section className='h-full bg-white'>
       <div className='flex justify-center'>
         <h1 className='font-title font-thin text-center text-main-0 text-5xl pt-20 border-b-4 pb-1 w-48 '>
           WORKS

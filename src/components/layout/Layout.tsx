@@ -12,10 +12,10 @@ type Props = {
 
 export const Layout = ({ children }: Props) => {
   return (
-    <main className='h-full'>
+    <main className='h-scrren bg-[url("/808.png")] bg-cover  bg-no-repeat bg-fixed  tb:bg-none '>
       {children}
-      <footer className='bg-portfolioLine-0 h-full'>
-        <nav className='flex font-title justify-center font-bold list-none pt-2'>
+      <footer className='bg-portfolioLine-0'>
+        <nav className='flex tb:font-title justify-center font-bold list-none pt-2'>
           <li className='text-xl px-3 cursor-pointer'>
             <Link href='https://github.com/toasahi'>
               <a className='px-3'>
@@ -38,7 +38,7 @@ export const Layout = ({ children }: Props) => {
             </Link>
           </li>
         </nav>
-        <div className=' text-white text-center '>
+        <div className=' text-white text-center'>
           <small>&copy; 2023 ASAHI TODA</small>
         </div>
       </footer>
