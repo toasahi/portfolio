@@ -82,7 +82,7 @@ module.exports = {
         slideView2: 'slideView2 50s linear infinite;',
         slideView3: 'slideView3 60s linear infinite;',
         slideView4: 'slideView4 70s linear infinite;',
-        floatText: 'floatText 0.7s cubic-bezier(0.33, 1, 0.68, 1) 1 forwards;',
+        floatText: 'floatText 2s cubic-bezier(0.33, 1, 0.68, 1) 1 forwards;',
       },
     },
   },
