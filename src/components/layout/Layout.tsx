@@ -12,7 +12,7 @@ type Props = {
 
 export const Layout = ({ children }: Props) => {
   return (
-    <main className='h-scrren bg-[url("/808.png")] bg-cover  bg-no-repeat bg-fixed  tb:bg-none '>
+    <main className='h-scrren bg-[url("/vertical_bg.png")] bg-cover  bg-no-repeat bg-fixed  tb:bg-none '>
       {children}
       <footer className='bg-portfolioLine-0'>
         <nav className='flex tb:font-title justify-center font-bold list-none pt-2'>

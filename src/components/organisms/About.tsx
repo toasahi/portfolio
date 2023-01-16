@@ -7,7 +7,7 @@ export const About = () => {
   };
 
   return (
-    <section className='bg-transparent tb:bg-[url("/808.png")] bg-no-repeat bg-cover bg-center w-full tb:h-[750px] px-2 py-8 tb:px-16 tb:py-32'>
+    <section className='bg-none tb:bg-[url("/about.png")] tb:bg-no-repeat tb:bg-cover tb:bg-center w-full tb:h-[750px] px-2 py-8 tb:px-16 tb:py-32'>
       <div className='text-white font-text h-full'>
         <div className='  text-5xl  font-light w-2/3 flex justify-between tb:w-72 tb:text-6xl'>
           <h2>戸田</h2>
