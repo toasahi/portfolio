@@ -3,6 +3,7 @@ import { Inter } from 'next/font/google';
 import './globals.css';
 import Navigation from '@/components/navigation';
 import StateProvider from '@/components/providers/state-provider';
+import UmamiProvider from '@/components/providers/umami-provider';
 import Script from 'next/script';
 
 const inter = Inter({ subsets: ['latin'] });
@@ -23,8 +24,10 @@ export default function RootLayout({
       <head></head>
       <body className={inter.className}>
         <StateProvider>
-          {children}
-          <Navigation />
+          <UmamiProvider>
+            {children}
+            <Navigation />
+          </UmamiProvider>
         </StateProvider>
         <Script
           src="https://cloud.umami.is/script.js"

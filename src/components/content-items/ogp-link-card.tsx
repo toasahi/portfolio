@@ -7,11 +7,10 @@ interface OGPLinkCardProps {
 }
 
 export default function OGPLinkCard({ url, ogpData }: OGPLinkCardProps) {
-  const { track } = useUmami();
+  const { trackOutboundLink } = useUmami();
 
   const handleLinkClick = () => {
-    track('link_click', {
-      url: ogpData?.url || url,
+    trackOutboundLink(ogpData?.url || url, {
       title: ogpData?.title || 'Unknown',
       source: 'link_card',
     });

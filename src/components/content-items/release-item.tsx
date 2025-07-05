@@ -1,3 +1,4 @@
+import { useUmami } from '@/hooks/use-umami';
 import type { ContentItem } from '@/types/content';
 
 interface ReleaseItemProps {
@@ -5,6 +6,18 @@ interface ReleaseItemProps {
 }
 
 export default function ReleaseItem({ item }: ReleaseItemProps) {
+  const { trackOutboundLink } = useUmami();
+
+  const handleLinkClick = () => {
+    if (item.url) {
+      trackOutboundLink(item.url, {
+        title: item.title,
+        source: 'release_item',
+        postType: item.postType,
+      });
+    }
+  };
+
   return (
     <div className="w-full">
       {/* Release Header */}
@@ -20,6 +33,7 @@ export default function ReleaseItem({ item }: ReleaseItemProps) {
         href={item.url}
         target="_blank"
         rel="noopener noreferrer"
+        onClick={handleLinkClick}
         className="block bg-white border border-gray-200 rounded-lg p-4 hover:shadow-md transition-shadow cursor-pointer"
       >
         <div className="flex items-start space-x-3">
