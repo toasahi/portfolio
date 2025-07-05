@@ -26,7 +26,7 @@
     "jotai": "^2.12.5",
     "jotai-xstate": "^0.6.1",
     "lucide-react": "^0.516.0",
-    "next": "^15.4.0-canary.84",
+    "next": "^15",
     "next-cloudinary": "^6.16.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
