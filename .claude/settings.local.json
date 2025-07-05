@@ -1,0 +1,21 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(find:*)",
+      "Bash(mkdir:*)",
+      "Bash(curl:*)",
+      "Bash(cat:*)",
+      "Bash(ls:*)",
+      "Bash(bun install:*)",
+      "Bash(source:*)",
+      "Bash(rg:*)",
+      "Bash(turso db shell:*)",
+      "Bash(turso auth:*)",
+      "Bash(turso db:*)",
+      "Bash(bun:*)",
+      "Bash(grep:*)",
+      "Bash(echo:*)"
+    ],
+    "deny": []
+  }
+}

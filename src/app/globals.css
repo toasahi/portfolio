@@ -1,0 +1,15 @@
+@import 'tailwindcss';
+
+/* Line clamp utility for text truncation */
+.line-clamp-2 {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+}
+
+/* Aspect ratio utilities */
+.aspect-\[2\/1\] {
+  aspect-ratio: 2 / 1;
+}
