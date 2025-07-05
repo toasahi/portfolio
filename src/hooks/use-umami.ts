@@ -98,11 +98,11 @@ export const useUmami = () => {
   const trackOutboundLink = useCallback(
     (url: string, additionalData?: Record<string, any>) => {
       if (typeof window !== 'undefined' && window.umami) {
-        // ソース情報に基づいてカスタムイベント名を生成
-        const source = additionalData?.source || 'manual';
-        const eventName = generateEventName(url, source);
+        // // ソース情報に基づいてカスタムイベント名を生成
+        // const source = additionalData?.source || 'manual';
+        // const eventName = generateEventName(url, source);
 
-        window.umami.track(eventName, {
+        window.umami.track(url, {
           url,
           hostname: new URL(url).hostname,
           trackingType: 'manual',
