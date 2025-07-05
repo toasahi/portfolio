@@ -1,5 +1,44 @@
 import { useCallback } from 'react';
 
+// URL解析とイベント名生成
+const generateEventName = (url: string, source?: string): string => {
+  try {
+    const parsedUrl = new URL(url);
+    const hostname = parsedUrl.hostname.toLowerCase();
+
+    // 主要サービスのマッピング
+    const serviceMap: Record<string, string> = {
+      'zenn.dev': 'zenn',
+      'qiita.com': 'qiita',
+      'note.com': 'note',
+      'github.com': 'github',
+      'twitter.com': 'twitter',
+      'x.com': 'twitter',
+      'linkedin.com': 'linkedin',
+      'youtube.com': 'youtube',
+      'youtu.be': 'youtube',
+      'medium.com': 'medium',
+      'dev.to': 'dev',
+      'stackoverflow.com': 'stackoverflow',
+      'docs.google.com': 'google-docs',
+      'drive.google.com': 'google-drive',
+    };
+
+    // www. プレフィックスを削除
+    const cleanHostname = hostname.replace(/^www\./, '');
+
+    // サービス名を取得（マッピングにない場合はホスト名の最初の部分を使用）
+    const serviceName =
+      serviceMap[cleanHostname] || cleanHostname.split('.')[0];
+
+    // ソース情報があれば結合
+    return source ? `${serviceName}-${source}` : serviceName;
+  } catch {
+    // URL解析に失敗した場合はフォールバック
+    return source ? `external-${source}` : 'external';
+  }
+};
+
 declare global {
   interface Window {
     umami?: {
@@ -33,10 +72,14 @@ const handleOutboundClick = (event: MouseEvent) => {
     !link.href.startsWith('tel:');
 
   if (isOutbound && window.umami) {
-    window.umami.track('outbound-link', {
+    // カスタムイベント名を生成
+    const eventName = generateEventName(link.href, 'auto');
+
+    window.umami.track(eventName, {
       url: link.href,
       text: link.textContent?.trim() || '',
       hostname: link.hostname,
+      trackingType: 'auto',
     });
   }
 };
@@ -55,9 +98,14 @@ export const useUmami = () => {
   const trackOutboundLink = useCallback(
     (url: string, additionalData?: Record<string, any>) => {
       if (typeof window !== 'undefined' && window.umami) {
-        window.umami.track('outbound-link', {
+        // ソース情報に基づいてカスタムイベント名を生成
+        const source = additionalData?.source || 'manual';
+        const eventName = generateEventName(url, source);
+
+        window.umami.track(eventName, {
           url,
           hostname: new URL(url).hostname,
+          trackingType: 'manual',
           ...additionalData,
         });
       }

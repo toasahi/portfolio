@@ -12,8 +12,9 @@ export default function ReleaseItem({ item }: ReleaseItemProps) {
     if (item.url) {
       trackOutboundLink(item.url, {
         title: item.title,
-        source: 'release_item',
+        source: 'release',
         postType: item.postType,
+        description: item.description,
       });
     }
   };

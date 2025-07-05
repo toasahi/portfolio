@@ -12,7 +12,8 @@ export default function OGPLinkCard({ url, ogpData }: OGPLinkCardProps) {
   const handleLinkClick = () => {
     trackOutboundLink(ogpData?.url || url, {
       title: ogpData?.title || 'Unknown',
-      source: 'link_card',
+      source: 'link-card',
+      siteName: ogpData?.siteName,
     });
   };
   if (!ogpData) {
