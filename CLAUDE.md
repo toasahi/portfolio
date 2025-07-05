@@ -127,6 +127,7 @@ switch (item.postType) {
 ## TDD TODOリスト
 
 ### 基本方針
+t-wadaさんの推奨する進め方に従ってください
 
 - 🔴 Red: 失敗するテストを書く
 - 🟢 Green: テストを通す最小限の実装
