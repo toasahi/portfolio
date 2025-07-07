@@ -641,3 +641,75 @@ UmamiProviderが必要な理由は、layout.tsxでのScriptロードとクライ
 
   レストランで例えると、Scriptが「料理を注文」、UmamiProviderが「料理が出来上がるまで待って食べ始める」役割で
   す。
+
+
+   window.umamiを使用する理由と、data-umami-event属性がNext.jsでは不十分な理由を説明します：
+
+  Next.jsの制約とSPAの問題
+
+  1. Server Side Renderingの制約
+
+  // ❌ Next.jsのSSRではwindowオブジェクトが存在しない
+  <a data-umami-event="outbound-link-click">  // サーバー側では動作しない
+
+  2. 動的コンテンツの追跡困難
+
+  // ❌ 静的属性では動的情報を取得できない
+  <a data-umami-event="outbound-link-click"
+     data-umami-event-url="https://example.com">  // URLが動的に変わる場合に対応できない
+
+  3. 詳細なメタデータ収集の限界
+
+  // ❌ 属性だけでは複雑なデータを送信できない
+  // リンクテキスト、ホスト名、カスタムイベント名の生成など
+
+  window.umamiを使う利点
+
+  1. 動的なイベント名生成
+
+  // ✅ URLから動的にサービス名を判定
+  const eventName = generateEventName(link.href, 'auto');
+  // 'github-auto', 'zenn-auto' など
+  window.umami.track(eventName, { ... });
+
+  2. 豊富なメタデータ送信
+
+  // ✅ 複雑なデータ構造を送信可能
+  window.umami.track('github-auto', {
+    url: link.href,
+    text: link.textContent?.trim(),    // リンクのテキスト
+    hostname: link.hostname,           // ホスト名
+    trackingType: 'auto',             // 自動/手動の区別
+    siteName: ogpData?.siteName       // OGPデータ
+  });
+
+  3. クライアント側での完全制御
+
+  // ✅ ブラウザでのみ実行、SSRの制約なし
+  if (typeof window !== 'undefined' && window.umami) {
+    window.umami.track(eventName, eventData);
+  }
+
+  実際の動作比較
+
+  属性ベース（制限あり）
+
+  <!-- 静的、メタデータ不足 -->
+  <a href="https://github.com/user/repo"
+     data-umami-event="outbound-link-click"
+     data-umami-event-url="https://github.com/user/repo">
+
+  window.umamiベース（柔軟）
+
+  // 動的、豊富なメタデータ
+  const handleClick = () => {
+    window.umami.track('github-link-card', {
+      url: 'https://github.com/user/repo',
+      title: 'Repository Name',
+      source: 'link-card',
+      siteName: 'GitHub'
+    });
+  };
+
+  結論: Next.jsのSSR環境と動的なメタデータ収集要件により、window.umamiを使った JavaScript
+  ベースの実装が必要不可欠です。
