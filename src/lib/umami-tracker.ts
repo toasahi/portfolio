@@ -1,5 +1,5 @@
 'use client';
-import { getOrCreateUser } from '@/lib/userUtils';
+import { getOrCreateUser } from '@/lib/user-utils';
 import { useEffect } from 'react';
 
 interface UmamiTrackerProps {
