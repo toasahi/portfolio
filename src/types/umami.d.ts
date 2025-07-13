@@ -1,24 +1,37 @@
-declare global {
-  interface Window {
-    umami: {
-      track: (eventName: string, eventData?: Record<string, unknown>) => void;
-      identify: {
-        (uniqueId: string, userData?: Record<string, unknown>): void;
-        (userData: Record<string, unknown>): void;
-      };
-    };
+declare let umami: umami.umami;
+
+/**
+ * @see {@link https://umami.is/docs/tracker-functions|Umami Docs}
+ */
+declare namespace umami {
+  interface umami {
+    track(): Promise<string> | undefined;
+    track(
+      event_name: string,
+      event_data?: { [key: string]: unknown },
+    ): Promise<string> | undefined;
+    track(custom_payload: {
+      website: string;
+      [key: string]: unknown;
+    }): Promise<string> | undefined;
+    track(
+      callback: (props: {
+        hostname: string;
+        language: string;
+        referrer: string;
+        screen: string;
+        title: string;
+        url: string;
+        website: string;
+      }) => { website: string; [key: string]: unknown },
+    ): Promise<string> | undefined;
+    identify(unique_id: string): Promise<string> | undefined;
+    identify(
+      unique_id: string,
+      event_data?: { [key: string]: unknown },
+    ): Promise<string> | undefined;
+    identify(event_data: { [key: string]: unknown }):
+      | Promise<string>
+      | undefined;
   }
-}
-
-export interface UmamiUser {
-  id: string;
-  sessionId: string;
-  createdAt: number;
-}
-
-export interface UmamiEventData {
-  userId: string;
-  sessionId: string;
-  timestamp: number;
-  [key: string]: unknown;
 }
